@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>JS基础知识练习（作业版）</title>
+    <style>
+        body { font-family: 微软雅黑; padding: 20px; }
+        .result { background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 10px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <h1>JavaScript 基础练习作业</h1>
+    <p>按F12打开「控制台」可查看详细输出，也可直接在下方查看结果：</p >
+    <div class="result" id="output"></div>
+
+    <script>
+        // 1. 变量定义 & 变量类型
+        let name = "小明";
+        let age = 20;
+        const isStudent = true;
+        let hobbies = ["看书", "打游戏", "编程"];
+        let info = { school: "西北民族大学", major: "新闻传播学" };
+        let empty = null;
+        let unknown;
+
+        // 2. 表达式
+        let a = 10, b = 3;
+        let addResult = a + b;
+        let compareResult = a > b;
+
+        // 3. 流程控制
+        let ageTip = age >= 18 ? "你已经成年了" : "你还未成年";
+        let hobbiesStr = "";
+        for (let i = 0; i < hobbies.length; i++) {
+            hobbiesStr += `第${i+1}个爱好：${hobbies[i]}；`;
+        }
+
+        // 4. 函数
+        function greet(name) {
+            return `你好，${name}！欢迎学习JS`;
+        }
+        function calculateSum(x, y) {
+            return x + y;
+        }
+        const multiply = (x, y) => x * y;
+
+        // 同时在控制台和页面输出结果
+        console.log("=== JS基础练习结果 ===");
+        console.log("变量类型练习：", {name, age, isStudent, hobbies, info, empty, unknown});
+        console.log("表达式练习：", `${a}+${b}=${addResult}，${a}>${b}为${compareResult}`);
+        console.log("流程控制练习：", ageTip, hobbiesStr);
+        console.log("函数练习：", greet(name), calculateSum(10,5), multiply(6,7));
+
+        // 页面直接输出（不用控制台也能看）
+        document.getElementById("output").innerHTML = `
+            <strong>变量类型：</strong>name=${name}, age=${age}, isStudent=${isStudent}, hobbies=${hobbies.join(', ')}<br>
+            <strong>表达式：</strong>10+3=${addResult}, 10>3=${compareResult}<br>
+            <strong>流程控制：</strong>${ageTip}<br>
+            <strong>for循环遍历爱好：</strong>${hobbiesStr}<br>
+            <strong>函数调用：</strong>${greet(name)}，10+5=${calculateSum(10,5)}，6×7=${multiply(6,7)}
+        `;
+    </script>
+</body>
+</html>
